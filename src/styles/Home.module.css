@@ -1,0 +1,32 @@
+.container {
+  padding: 16px;
+}
+
+.container h2 {
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  font-size: 32px;
+}
+
+.grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+.grid::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.grid::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+
+.grid::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #858585;
+}
