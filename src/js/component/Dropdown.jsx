@@ -3,7 +3,7 @@ import styles from '../../styles/Dropdown.module.css'
 import { Context } from '../store/appContext.js'
 
 const Dropdown = () => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const { store } = useContext(Context)
 
   const favCharacters = store.favorites.charactersUID.map((uid) =>
@@ -34,22 +34,22 @@ const Dropdown = () => {
         <ul className={styles.dropdownMenu}>
           <li className={styles.menuTitle}>Characters</li>
           {favCharacters.map((c) => (
-            <li>
+            <li key={c.uid}>
               {c.name}
               <i className='fas fa-trash'></i>
             </li>
           ))}
           <li className={styles.menuTitle}>Planets</li>
           {favPlanets.map((p) => (
-            <li>
+            <li key={p.uid}>
               {p.name}
               <i className='fas fa-trash'></i>
             </li>
           ))}
           <li className={styles.menuTitle}>Vehicles</li>
-          {favVehicles.map((p) => (
-            <li>
-              {p.name}
+          {favVehicles.map((v) => (
+            <li key={v.uid}>
+              {v.name}
               <i className='fas fa-trash'></i>
             </li>
           ))}

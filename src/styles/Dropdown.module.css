@@ -4,7 +4,7 @@
   gap: 5px;
   position: relative;
   font-family: 'Roboto', sans-serif;
-  background-color: #ffee58;
+  background-color: #fcef33;
   color: #212121;
   border-radius: 5px;
   padding: 10px;
@@ -51,7 +51,13 @@
 }
 
 .dropdownMenu li i {
-  font-size: 12px;
+  padding: 6px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.dropdownMenu li i:hover {
+  background-color: #20202034;
 }
 
 .dropdownMenu li::after {
@@ -69,7 +75,7 @@
     width: 80%;
   }
   50% {
-    width: 0%;
+    width: 40%;
   }
   100% {
     width: 80%;

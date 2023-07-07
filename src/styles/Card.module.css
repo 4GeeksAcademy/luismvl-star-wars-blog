@@ -5,6 +5,7 @@
   flex-shrink: 0;
   align-self: stretch;
   width: 145px;
+  background-color: #000000cc;
 }
 
 .container img {
@@ -17,7 +18,7 @@
   font-weight: 300;
 }
 
-.buttons {
+.cardFooter {
   display: flex;
   justify-content: space-between;
   gap: 5px;
@@ -26,7 +27,12 @@
   padding-bottom: 10px;
 }
 
-.buttons button {
+.buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.cardFooter button {
   border: none;
   padding: 0;
   font-size: 13px;
@@ -37,7 +43,6 @@
   cursor: pointer;
 }
 
-.favBtn i {
+.cardFooter i {
   font-size: 20px;
-  margin-right: 0px;
 }

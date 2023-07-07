@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import styles from '../../styles/Home.module.css'
 import { Context } from '../store/appContext.js'
+
+import styles from '../../styles/Home.module.css'
 
 import Card from '../component/Card.jsx'
 
@@ -27,6 +28,17 @@ const Home = () => {
         {store.vehicles.map((v) => (
           <Card key={v.uid} name={v.name} uid={v.uid} type='vehicle' />
         ))}
+      </div>
+
+      <h2>
+        Read Later <i className='fas fa-bookmark'></i>
+      </h2>
+      <div className={styles.grid}>
+        {store.readLater.charactersUID
+          .map((uid) => store.characters.find((c) => c.uid === uid))
+          .map((c) => (
+            <Card key={c.uid} name={c.name} uid={c.uid} type='character' />
+          ))}
       </div>
     </div>
   )

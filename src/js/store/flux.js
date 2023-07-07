@@ -87,6 +87,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         planetsUID: ['1'],
         vehiclesUID: ['4'],
       },
+      readLater: {
+        charactersUID: ['1', '2'],
+        planetsUID: ['1'],
+        vehiclesUID: ['4'],
+      },
     },
     actions: {
       // Use getActions to call a function within a fuction
