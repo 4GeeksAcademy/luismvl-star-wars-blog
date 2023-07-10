@@ -1,4 +1,4 @@
-const baseUrl = 'https://www.swapi.tech/api/'
+const baseUrl = 'https://www.swapi.tech/api'
 
 async function makeRequest(url, method = 'GET', body = null) {
   const response = await fetch(url, {
@@ -10,9 +10,25 @@ async function makeRequest(url, method = 'GET', body = null) {
   })
   const data = await response.json()
   if (!response.ok) {
-    const newError = new Error(data.msg)
+    const newError = new Error(data.message)
     newError.httpStatus = response.status
     throw newError
   }
   return data
+}
+
+export async function fetchList({ type, url }) {
+  const response = await makeRequest(
+    url ??
+      `${baseUrl}/${type === 'characters' ? 'people' : type}?page=1&limit=10`
+  )
+  return response
+}
+
+export async function fetchDetails({ type, id }) {
+  const response = await makeRequest(
+    `${baseUrl}/${type === 'characters' ? 'people' : type}/${id}`
+  )
+  const details = { ...response.result.properties, uid: response.result.uid }
+  return details
 }

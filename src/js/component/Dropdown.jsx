@@ -18,35 +18,43 @@ const Dropdown = () => {
   const count = favVehicles.length + favPlanets.length + favVehicles.length
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen)
+    if (count > 0) setIsOpen(!isOpen)
   }
 
   return (
     <div className={styles.dropdown} onClick={toggleDropdown}>
       <span>Favorites</span>
       <span className={styles.count}>{count}</span>
-      {isOpen ? (
-        <i className='fas fa-angle-up'></i>
-      ) : (
-        <i className='fas fa-angle-down'></i>
-      )}
+      {count > 0 &&
+        (isOpen ? (
+          <i className='fas fa-angle-up'></i>
+        ) : (
+          <i className='fas fa-angle-down'></i>
+        ))}
       {isOpen && (
         <ul className={styles.dropdownMenu}>
-          <li className={styles.menuTitle}>Characters</li>
+          {favCharacters.length > 0 && (
+            <li className={styles.menuTitle}>Characters</li>
+          )}
           {favCharacters.map((c) => (
             <li key={c.uid}>
               {c.name}
               <i className='fas fa-trash'></i>
             </li>
           ))}
-          <li className={styles.menuTitle}>Planets</li>
+
+          {favPlanets.length > 0 && (
+            <li className={styles.menuTitle}>Planets</li>
+          )}
           {favPlanets.map((p) => (
             <li key={p.uid}>
               {p.name}
               <i className='fas fa-trash'></i>
             </li>
           ))}
-          <li className={styles.menuTitle}>Vehicles</li>
+          {favVehicles.length > 0 && (
+            <li className={styles.menuTitle}>Vehicles</li>
+          )}
           {favVehicles.map((v) => (
             <li key={v.uid}>
               {v.name}

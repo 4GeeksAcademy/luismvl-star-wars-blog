@@ -4,7 +4,7 @@ import ScrollToTop from './component/scrollToTop'
 import injectContext from './store/appContext'
 
 import Home from './views/Home.jsx'
-
+import Details from './views/Details.jsx'
 import Navbar from './component/Navbar.jsx'
 
 //create your first component
@@ -21,6 +21,9 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/character/:uid' element={<Details />} />
+            <Route path='/planet/:uid' element={<Details />} />
+            <Route path='/vehicle/:uid' element={<Details />} />
             <Route path='*' element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>

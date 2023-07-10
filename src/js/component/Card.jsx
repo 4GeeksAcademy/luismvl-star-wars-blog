@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { Context } from '../store/appContext.js'
+import { useNavigate } from 'react-router'
 
 import styles from '../../styles/Card.module.css'
 
 const Card = ({ name, uid, type }) => {
   const { store } = useContext(Context)
+  const navigate = useNavigate()
 
   return (
     <div className={styles.container}>
@@ -18,7 +20,13 @@ const Card = ({ name, uid, type }) => {
       />
       <h3>{name}</h3>
       <div className={styles.cardFooter}>
-        <button>Learn more!</button>
+        <button
+          onClick={() =>
+            navigate(`${type}/${uid}`, { state: { type, name, uid } })
+          }
+        >
+          Learn more!
+        </button>
         <div className={styles.buttons}>
           <button className={styles.favBtn}>
             {store.favorites[`${type}sUID`].includes(uid) ? (
@@ -32,9 +40,9 @@ const Card = ({ name, uid, type }) => {
           </button>
           <button>
             {store.readLater[`${type}sUID`].includes(uid) ? (
-              <i class='fas fa-bookmark' style={{ color: '#ffc500' }}></i>
+              <i className='fas fa-bookmark' style={{ color: '#ffc500' }}></i>
             ) : (
-              <i class='far fa-bookmark'></i>
+              <i className='far fa-bookmark'></i>
             )}
           </button>
         </div>
