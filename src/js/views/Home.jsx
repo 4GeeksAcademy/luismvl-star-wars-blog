@@ -14,7 +14,7 @@ const Home = () => {
         {store.characters.map((c) => (
           <Card key={c.uid} name={c.name} uid={c.uid} type='character' />
         ))}
-        {store.nextCharacters && (
+        {store.nextPageURLs.characters && (
           <button
             className={styles.nextPageBtn}
             onClick={() => actions.loadNextPage('characters')}
@@ -30,7 +30,7 @@ const Home = () => {
         {store.planets.map((p) => (
           <Card key={p.uid} name={p.name} uid={p.uid} type='planet' />
         ))}
-        {store.nextPlanets && (
+        {store.nextPageURLs.planets && (
           <button
             className={styles.nextPageBtn}
             onClick={() => actions.loadNextPage('planets')}
@@ -46,7 +46,7 @@ const Home = () => {
         {store.vehicles.map((v) => (
           <Card key={v.uid} name={v.name} uid={v.uid} type='vehicle' />
         ))}
-        {store.nextVehicles && (
+        {store.nextPageURLs.vehicles && (
           <button
             className={styles.nextPageBtn}
             onClick={() => actions.loadNextPage('vehicles')}
@@ -63,7 +63,7 @@ const Home = () => {
       <div className={styles.grid}>
         {Array.isArray(store.characters) &&
           store.characters.length > 0 &&
-          store.readLater.charactersUID
+          store.readLaterUIDs.characters
             .map((uid) => store.characters.find((c) => c.uid === uid))
             .map((c) => (
               <Card key={c.uid} name={c.name} uid={c.uid} type='character' />

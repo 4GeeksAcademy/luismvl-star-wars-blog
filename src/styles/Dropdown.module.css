@@ -11,6 +11,7 @@
   cursor: pointer;
   align-self: start;
   font-size: 15px;
+  border: none;
 }
 
 .dropdown > i {

@@ -6,23 +6,23 @@ const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { store } = useContext(Context)
 
-  const favCharacters = store.favorites.charactersUID.map((uid) =>
+  const favCharacters = store.favoritesUIDs.characters.map((uid) =>
     store.characters.find((c) => c.uid === uid)
   )
-  const favPlanets = store.favorites.planetsUID.map((uid) =>
+  const favPlanets = store.favoritesUIDs.planets.map((uid) =>
     store.planets.find((p) => p.uid === uid)
   )
-  const favVehicles = store.favorites.vehiclesUID.map((uid) =>
+  const favVehicles = store.favoritesUIDs.vehicles.map((uid) =>
     store.vehicles.find((v) => v.uid === uid)
   )
-  const count = favVehicles.length + favPlanets.length + favVehicles.length
+  const count = favCharacters.length + favPlanets.length + favVehicles.length
 
   const toggleDropdown = () => {
     if (count > 0) setIsOpen(!isOpen)
   }
 
   return (
-    <div className={styles.dropdown} onClick={toggleDropdown}>
+    <button id='dropdown' className={styles.dropdown} onClick={toggleDropdown}>
       <span>Favorites</span>
       <span className={styles.count}>{count}</span>
       {count > 0 &&
@@ -63,7 +63,7 @@ const Dropdown = () => {
           ))}
         </ul>
       )}
-    </div>
+    </button>
   )
 }
 
