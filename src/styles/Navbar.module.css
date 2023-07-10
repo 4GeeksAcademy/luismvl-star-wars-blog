@@ -8,3 +8,7 @@
   background-color: #000000ee;
   z-index: 10;
 }
+
+.navbar svg {
+  cursor: pointer;
+}
