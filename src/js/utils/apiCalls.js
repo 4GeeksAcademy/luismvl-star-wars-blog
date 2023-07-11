@@ -25,9 +25,9 @@ export async function fetchList({ type, url }) {
   return response
 }
 
-export async function fetchDetails({ type, id }) {
+export async function fetchDetails({ type, uid }) {
   const response = await makeRequest(
-    `${baseUrl}/${type === 'characters' ? 'people' : type}/${id}`
+    `${baseUrl}/${type === 'character' ? 'people' : type + 's'}/${uid}`
   )
   const details = { ...response.result.properties, uid: response.result.uid }
   return details

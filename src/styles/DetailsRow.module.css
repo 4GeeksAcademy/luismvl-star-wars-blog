@@ -1,0 +1,23 @@
+.detailRow {
+  margin: 8px auto;
+}
+.detailRow:first-child {
+  margin-top: 0;
+}
+.detailRow:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: inline-block;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.value {
+  font-weight: 700;
+  letter-spacing: 1px;
+}

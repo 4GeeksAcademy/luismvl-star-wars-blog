@@ -40,8 +40,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           type,
         })
       },
-      loadDetails: async ({ type, id }) => {
-        const response = await fetchDetails({ type, id })
+      loadDetails: async ({ type, uid }) => {
+        const response = await fetchDetails({ type, uid })
         return response
       },
       addToFavorites: ({ uid, type }) => {

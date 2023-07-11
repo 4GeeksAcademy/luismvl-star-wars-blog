@@ -21,9 +21,12 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/character/:uid' element={<Details />} />
-            <Route path='/planet/:uid' element={<Details />} />
-            <Route path='/vehicle/:uid' element={<Details />} />
+            <Route
+              path='/character/:uid'
+              element={<Details type='character' />}
+            />
+            <Route path='/planet/:uid' element={<Details type='planet' />} />
+            <Route path='/vehicle/:uid' element={<Details type='vehicle' />} />
             <Route path='*' element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>
