@@ -8,6 +8,18 @@
   background-color: #000000cc;
 }
 
+@media (min-width: 425px) {
+  .container {
+    width: 190px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 210px;
+  }
+}
+
 .container img {
   aspect-ratio: 2/3;
   object-fit: cover;
@@ -21,18 +33,18 @@
   overflow: hidden;
 }
 
+@media (min-width: 425px) {
+  .container h3 {
+    font-size: 22px;
+  }
+}
+
 .cardFooter {
   display: flex;
   justify-content: space-between;
   gap: 5px;
   flex-wrap: wrap;
   padding-bottom: 10px;
-}
-
-.buttons {
-  display: flex;
-  gap: 14px;
-  margin-right: 10px;
 }
 
 .cardFooter button {
@@ -46,6 +58,24 @@
   cursor: pointer;
 }
 
+@media (min-width: 425px) {
+  .cardFooter button {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cardFooter button {
+    font-size: 17px;
+  }
+}
+
 .cardFooter i {
   font-size: 20px;
+}
+
+@media (min-width: 425px) {
+  .cardFooter i {
+    font-size: 22px;
+  }
 }

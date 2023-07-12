@@ -29,6 +29,18 @@ export async function fetchDetails({ type, uid }) {
   const response = await makeRequest(
     `${baseUrl}/${type === 'character' ? 'people' : type + 's'}/${uid}`
   )
-  const details = { ...response.result.properties, uid: response.result.uid }
+  const details = {
+    ...response.result.properties,
+    uid: response.result.uid,
+  }
+
+  if (type === 'character') {
+    const homeworld = await makeRequest(response.result.properties.homeworld)
+    details.homeworld = {
+      ...homeworld.result.properties,
+      uid: homeworld.result.uid,
+    }
+  }
+
   return details
 }

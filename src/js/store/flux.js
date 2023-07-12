@@ -56,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       removeFromFavorites({ uid, type }) {
         const newFavorites = getStore().favoritesUIDs[`${type}s`].filter(
-          (el) => el.uid === uid
+          (favUID) => favUID !== uid
         )
         setStore({
           favoritesUIDs: {
@@ -77,7 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       removeFromReadLater({ uid, type }) {
         const newReadLater = getStore().readLaterUIDs[`${type}s`].filter(
-          (el) => el.uid === uid
+          (readLaterUID) => readLaterUID !== uid
         )
         setStore({
           readLaterUIDs: {
