@@ -19,13 +19,7 @@ const Card = ({ name, uid, type }) => {
       />
       <h3>{name}</h3>
       <div className={styles.cardFooter}>
-        <button
-          onClick={() =>
-            navigate(`${type}/${uid}`, { state: { type, name, uid } })
-          }
-        >
-          Learn more!
-        </button>
+        <button onClick={() => navigate(`${type}/${uid}`)}>Learn more!</button>
         <Buttons type={type} uid={uid} />
       </div>
     </div>
