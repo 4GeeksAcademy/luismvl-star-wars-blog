@@ -24,10 +24,18 @@ const Layout = () => {
             <Route path='/' element={<Home />} />
             <Route
               path='/character/:uid'
-              element={<Details type='character' />}
+              element={
+                <Details type='character' key={document.location.href} />
+              }
             />
-            <Route path='/planet/:uid' element={<Details type='planet' />} />
-            <Route path='/vehicle/:uid' element={<Details type='vehicle' />} />
+            <Route
+              path='/planet/:uid'
+              element={<Details type='planet' key={document.location.href} />}
+            />
+            <Route
+              path='/vehicle/:uid'
+              element={<Details type='vehicle' key={document.location.href} />}
+            />
             <Route path='*' element={<NotFound />} />
           </Routes>
           <Footer />
