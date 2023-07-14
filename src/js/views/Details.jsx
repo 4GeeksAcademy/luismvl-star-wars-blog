@@ -60,7 +60,9 @@ const CharacterDetails = ({ type }) => {
               <div className={styles.homeworldHeader}>
                 <DetailsRow label='Homeworld' value={element.homeworld.name} />
                 <button
-                  onClick={() => navigate(`/planet/${element.homeworld.uid}`)}
+                  onClick={() => {
+                    navigate(`/planet/${element.homeworld.uid}`)
+                  }}
                 >
                   <i className='fas fa-info-circle'></i>
                 </button>
