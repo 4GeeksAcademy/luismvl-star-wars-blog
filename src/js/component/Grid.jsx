@@ -6,10 +6,10 @@ import styles from '../../styles/Grid.module.css'
 
 import Card from '../component/Card.jsx'
 
-const Grid = ({ type, readLater }) => {
+const Grid = ({ type, isReadLater }) => {
   const { store, actions } = useContext(Context)
 
-  if (readLater) {
+  if (isReadLater) {
     return (
       <div className={styles.container}>
         <h2>
