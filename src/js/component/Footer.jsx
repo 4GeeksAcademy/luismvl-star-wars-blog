@@ -15,7 +15,7 @@ const Footer = () => {
   if (amountOfReadLater > 0)
     return (
       <div className={styles.container}>
-        <Grid readLater />
+        <Grid isReadLater />
       </div>
     )
 }
