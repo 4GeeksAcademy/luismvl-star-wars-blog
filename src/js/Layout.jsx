@@ -15,7 +15,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || ''
 
   return (
-    <>
+    <div>
       <div className='bg'></div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
@@ -33,7 +33,7 @@ const Layout = () => {
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 
