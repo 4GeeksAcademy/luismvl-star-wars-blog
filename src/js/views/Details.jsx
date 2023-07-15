@@ -10,7 +10,7 @@ import DetailsRow from '../component/DetailsRow.jsx'
 import Buttons from '../component/Buttons.jsx'
 import Loader from '../component/Loader.jsx'
 
-const CharacterDetails = ({ type }) => {
+const Details = ({ type }) => {
   const [element, setElement] = useState(null)
   const { actions } = useContext(Context)
   const { uid } = useParams()
@@ -20,9 +20,9 @@ const CharacterDetails = ({ type }) => {
     actions.loadDetails({ uid, type }).then((el) => {
       setElement(el)
     })
-  }, [])
+  }, [type])
 
-  if (!element) return <Loader />
+  if (!element || type !== element.type) return <Loader />
 
   return (
     <div className={styles.container}>
@@ -33,7 +33,7 @@ const CharacterDetails = ({ type }) => {
             (e.target.src =
               'https://starwars-visualguide.com/assets/img/big-placeholder.jpg')
           }
-          alt={`Image of ${element.name || 'Something from Star Wars'}`}
+          alt={element.name}
         />
         <Buttons type={type} uid={uid} big />
       </div>
@@ -61,7 +61,14 @@ const CharacterDetails = ({ type }) => {
                 <DetailsRow label='Homeworld' value={element.homeworld.name} />
                 <button
                   onClick={() => {
+                    setElement(null)
                     navigate(`/planet/${element.homeworld.uid}`)
+                    actions
+                      .loadDetails({
+                        uid: element.homeworld.uid,
+                        type: 'planet',
+                      })
+                      .then((el) => setElement(el))
                   }}
                 >
                   <i className='fas fa-info-circle'></i>
@@ -135,4 +142,4 @@ const CharacterDetails = ({ type }) => {
   )
 }
 
-export default CharacterDetails
+export default Details

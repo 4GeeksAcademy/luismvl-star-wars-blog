@@ -32,6 +32,7 @@ export async function fetchDetails({ type, uid }) {
   const details = {
     ...response.result.properties,
     uid: response.result.uid,
+    type,
   }
 
   if (type === 'character') {
